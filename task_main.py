@@ -1,6 +1,3 @@
-import time
-
-
 def yaml_to_json_main(input_file, output_file):
     with open(input_file, 'r', encoding='utf8') as in_file:
         data = in_file.readlines()

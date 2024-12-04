@@ -1,5 +1,4 @@
 import re
-import time
 
 
 def yaml_to_json_2(input_file, out_f):

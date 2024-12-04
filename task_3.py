@@ -1,6 +1,3 @@
-import time
-
-
 def count_spaces(row):
     return len(row) - len(row.lstrip())
 
