@@ -1,7 +1,7 @@
 import time
 
 
-def yaml_to_json(input_file, output_file):
+def yaml_to_json_main(input_file, output_file):
     with open(input_file, 'r', encoding='utf8') as in_file:
         data = in_file.readlines()
         numb_lines = len(data)
@@ -58,9 +58,4 @@ def yaml_to_json(input_file, output_file):
 yaml_file = "input.yml"
 json_file = "output.json"
 
-start_time = time.time()
-for i in range(100):
-    yaml_to_json(yaml_file, json_file)
-exit_time = time.time()
-diff = exit_time - start_time
-print("Время выполнения, используя свой парсер - " + str(diff))
+yaml_to_json_main(yaml_file, json_file)

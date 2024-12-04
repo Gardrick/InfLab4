@@ -2,7 +2,7 @@ import re
 import time
 
 
-def yaml_to_json_regexp(input_file, out_f):
+def yaml_to_json_2(input_file, out_f):
     with open(input_file, 'r', encoding='utf8') as in_file:
         data = in_file.readlines()
 
@@ -52,11 +52,4 @@ def yaml_to_json_regexp(input_file, out_f):
 yaml_file = "input.yml"
 json_file = "output_2.json"
 
-start_time = time.time()
-for i in range(100):
-    yaml_to_json_regexp(yaml_file, json_file)
-
-exit_time = time.time()
-diff = exit_time - start_time
-
-print("Время выполнения, используя регулярные выражения - " + str(diff))
+yaml_to_json_2(yaml_file, json_file)
