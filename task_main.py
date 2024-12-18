@@ -1,7 +1,7 @@
 def yaml_to_json_main(input_file, output_file):
     with open(input_file, 'r', encoding='utf8') as in_file:
         data = in_file.readlines()
-        numb_lines = len(data)
+        number_of_lines = len(data)
 
     out_file = open(output_file, 'w', encoding='utf8')
     out_file.write("{\n")
@@ -11,7 +11,7 @@ def yaml_to_json_main(input_file, output_file):
         "  Пара6:\n", "  Пара7:\n", "  Пара8:\n"
     ]
 
-    for line in range(0, numb_lines):
+    for line in range(0, number_of_lines):
         if data[line] in ["Среда:\n"]:
             if data[0] == data[line]:
                 sup_string = data[line].lstrip().split(':', maxsplit=1)
@@ -33,11 +33,11 @@ def yaml_to_json_main(input_file, output_file):
             out_file.write('\t\t\t{\n')
 
         else:
-            if line + 1 == numb_lines:
+            if line + 1 == number_of_lines:
                 sup_string = data[line].lstrip().split(':', maxsplit=1)
                 a = sup_string[1].split("\n")
                 out_file.write('\t\t\t\t"' + sup_string[0] + '":' + a[0].lstrip() + "\n")
-            elif line + 1 != numb_lines and (data[line + 1] in lst):
+            elif line + 1 != number_of_lines and (data[line + 1] in lst):
                 sup_string = data[line].lstrip().split(':', maxsplit=1)
                 a = sup_string[1].split("\n")
                 out_file.write('\t\t\t\t"' + sup_string[0] + '":' + a[0].lstrip() + "\n")
@@ -45,7 +45,7 @@ def yaml_to_json_main(input_file, output_file):
                 sup_string = data[line].lstrip().split(':', maxsplit=1)
                 a = sup_string[1].split("\n")
                 out_file.write('\t\t\t\t"' + sup_string[0] + '":' + a[0].lstrip() + ",\n")
-            if line + 1 != numb_lines and data[line + 1] in lst:
+            if line + 1 != number_of_lines and data[line + 1] in lst:
                 out_file.write('\t\t\t},\n')
 
     out_file.write("\t\t\t}\n\t\t}\n\t}\n}"'\n')

@@ -2,9 +2,9 @@ def count_spaces(row):
     return len(row) - len(row.lstrip())
 
 
-def yaml_to_dict(in_file, out_f):
+def yaml_to_dict(input_file, output_file):
     res = {}
-    with open(in_file, 'r', encoding="utf8") as f:
+    with open(input_file, 'r', encoding="utf8") as f:
         data = f.readlines()
 
     hierarchy = []
@@ -17,23 +17,23 @@ def yaml_to_dict(in_file, out_f):
         while hierarchy[-1] != key:
             hierarchy.pop()
         if value == '\n':
-            cur_tree = res
+            current_tree = res
             for j in hierarchy:
-                if j in cur_tree:
-                    cur_tree = cur_tree[j]
+                if j in current_tree:
+                    current_tree = current_tree[j]
                 else:
-                    cur_tree[j] = {}
+                    current_tree[j] = {}
         else:
-            cur_tree = res
+            current_tree = res
             for j in hierarchy:
-                if j in cur_tree:
-                    cur_tree = cur_tree[j]
+                if j in current_tree:
+                    current_tree = current_tree[j]
                 else:
-                    cur_tree[j] = value.strip()
+                    current_tree[j] = value.strip()
 
     a = str(res).replace('\'', '\"')
-    with open(out_f, 'w', encoding='utf8') as out_f:
-        out_f.write(a)
+    with open(output_file, 'w', encoding='utf8') as out:
+        out.write(a)
 
 
 input_file = "input_3.yml"
